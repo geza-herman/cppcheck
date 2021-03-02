@@ -94,11 +94,11 @@ void CheckType::checkTooBigBitwiseShift()
         const ValueFlow::Value * value = tok->astOperand2()->getValueGE(lhsbits, mSettings);
         if (value && mSettings->isEnabled(value, false))
             tooBigBitwiseShiftError(tok, lhsbits, *value);
-        else if (lhstype->sign == ValueType::Sign::SIGNED) {
-            value = tok->astOperand2()->getValueGE(lhsbits-1, mSettings);
-            if (value && mSettings->isEnabled(value, false))
-                tooBigSignedBitwiseShiftError(tok, lhsbits, *value);
-        }
+        // else if (lhstype->sign == ValueType::Sign::SIGNED) {
+        //     value = tok->astOperand2()->getValueGE(lhsbits-1, mSettings);
+        //     if (value && mSettings->isEnabled(value, false))
+        //         tooBigSignedBitwiseShiftError(tok, lhsbits, *value);
+        // }
     }
 }
 

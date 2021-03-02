@@ -1270,7 +1270,7 @@ void CheckOther::checkPassByReference()
             // Ensure that it is a large object.
             if (!var->type()->classScope)
                 inconclusive = true;
-            else if (estimateSize(var->type(), mSettings, symbolDatabase) <= 2 * mSettings->sizeof_pointer)
+            else if (estimateSize(var->type(), mSettings, symbolDatabase) <= 6 * mSettings->sizeof_pointer)
                 continue;
         } else
             continue;
